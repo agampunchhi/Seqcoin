@@ -14,7 +14,8 @@ const REDIS_URL = isDevelopment ?
 'redis://127.0.0.1:6379' :
 'redis://:p486551fb24db4db152fe07847d45db97b172db2e1ded9cc0052b1e0463abb427@ec2-3-209-6-224.compute-1.amazonaws.com:12109'
 const DEFAULT_PORT = 3000;
-const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
+const ROOT_NODE_ADDRESS = isDevelopment ? `http://localhost:${DEFAULT_PORT}`:
+ 'https://pacific-wave-54006.herokuapp.com';
 
 const app = express();
 const blockchain = new Blockchain();
