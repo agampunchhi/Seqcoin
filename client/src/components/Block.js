@@ -1,3 +1,4 @@
+import { has } from 'core-js/core/dict';
 import React, { Component } from 'react';
 import  { Button } from 'react-bootstrap';
 import Transaction from './Transaction';
@@ -53,7 +54,8 @@ class Block extends Component {
 
         const hashDisplay = `${hash.substring(0, 15)}...`;
    
-
+        if(hash !== '77e1b6ba22719652116d3fb67593335c43120f6e453831c05adc7e8d769d6254')
+        {
         return (
             <div className = 'Block'>
                 <div>Hash: {hashDisplay}</div>
@@ -61,6 +63,13 @@ class Block extends Component {
                 {this.displayTransaction}
             </div>
         )
+        } else {
+            return (
+            <div className = 'Block'>
+                <div>INITIAL BLOCK</div>
+            </div>
+            )
+        }
     }
 };
 
