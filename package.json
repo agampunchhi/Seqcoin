@@ -13,6 +13,10 @@
     "dev-client": "npm run clean && parcel client/src/index.html --out-dir client/dist",
     "clean": "rm -rf .cache client/dist"
   },
+  "engines": {
+    "npm": "7.14.0",
+    "node":"15.1.0"
+  },
   "jest": {
     "testEnvironment": "node"
   },
