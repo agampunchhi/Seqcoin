@@ -15,7 +15,7 @@
   },
   "engines": {
     "npm": "7.14.0",
-    "node":"15.1.0"
+    "node": "15.1.0"
   },
   "jest": {
     "testEnvironment": "node"
@@ -37,11 +37,12 @@
     "body-parser": "^1.19.0",
     "core-js": "^2.6.12",
     "elliptic": "^6.5.4",
-    "express": "^4.17.1",
+    "express": "^4.16.3",
     "hex-to-binary": "^1.0.1",
     "history": "^4.7.2",
     "parcel": "^1.12.3",
     "parcel-bundler": "^1.12.3",
+    "re": "^0.1.4",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.0",

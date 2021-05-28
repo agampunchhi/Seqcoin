@@ -1,14 +1,14 @@
 const MINE_RATE = 10000;
 const INITIAL_DIFFICULTY = 3;
 const initTime = Date.parse('20 Aug 2001 21:50:00 GMT');
-
+//77e1b6ba22719652116d3fb67593335c43120f6e453831c05adc7e8d769d6254
 const GENESIS_DATA = {
     timestamp: initTime ,
     lastHash: 'null',
     hash: '77e1b6ba22719652116d3fb67593335c43120f6e453831c05adc7e8d769d6254',
     difficulty: INITIAL_DIFFICULTY,
     nonce: 0,
-    data: ['Block initialised.'],
+    data: [],
 };
 const STARTING_BALANCE = 100;
 

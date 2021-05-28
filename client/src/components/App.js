@@ -19,12 +19,12 @@ class App extends Component {
                 <img className='logo' src={logo}></img>
                 <br/>
                 <div>
-                Welcome to the Blockchain ^_^
+                <h1>SEQCOIN</h1>
                 </div>
                 <br/>
-                <div><Link to='/blocks'>Blocks</Link></div>
-                <div><Link to='/conduct-transaction'>Conduct a transaction</Link></div>
-                <div><Link to='/transaction-pool'>Transaction Pool</Link></div>
+                <div><Link to='/blocks'>BLOCKS</Link></div>
+                <div><Link to='/conduct-transaction'>CCONDUCT A TRANSACTION</Link></div>
+                <div><Link to='/transaction-pool'>TRANSACTION POOL</Link></div>
                 <div>
                     <hr/>
                 </div>

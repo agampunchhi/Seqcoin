@@ -14,8 +14,7 @@ const REDIS_URL = isDevelopment ?
 'redis://127.0.0.1:6379' :
 'redis://:p486551fb24db4db152fe07847d45db97b172db2e1ded9cc0052b1e0463abb427@ec2-3-209-6-224.compute-1.amazonaws.com:12109'
 const DEFAULT_PORT = 3000;
-const ROOT_NODE_ADDRESS = isDevelopment ? `http://localhost:${DEFAULT_PORT}`:
- 'https://pacific-wave-54006.herokuapp.com';
+const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 const app = express();
 const blockchain = new Blockchain();
@@ -33,6 +32,24 @@ app.get('/api/blocks', (req, res) => {
     res.json(blockchain.chain);
 });
 
+app.get('/api/blocks/length', (req, res) => {
+    res.json(blockchain.chain.length);
+});
+
+app.get('/api/blocks/:id', (req, res) => {
+    const { id } = req.params;
+    const { length } = blockchain.chain;
+
+    const blocksReversed = blockchain.chain.slice().reverse();
+    let startIndex = (id-1) * 5;
+    let endIndex = id * 5;
+
+    startIndex = startIndex < length ? startIndex : length;
+    endIndex = endIndex < length ? endIndex : length;
+
+    res.json(blocksReversed.slice(startIndex, endIndex));
+});
+
 app.post('/api/mine', (req,res) => {
     const {data} = req.body;
     blockchain.addBlock({ data });
@@ -47,6 +64,20 @@ app.get('/api/wallet-info', (req, res) => {
         balance: Wallet.calculateBalance({ chain: blockchain.chain, address })
     });
 });
+
+app.get('/api/known-addresses', (req, res) => {
+    const addressMap = {};
+  
+    for (let block of blockchain.chain) {
+      for (let transaction of block.data) {
+        const recipient = Object.keys(transaction.outputMap);
+  
+        recipient.forEach(recipient => addressMap[recipient] = recipient);
+      }
+    }
+  
+    res.json(Object.keys(addressMap));
+  });
 
 app.post('/api/transact', (req, res) => {
     const { amount, recipient } = req.body;
