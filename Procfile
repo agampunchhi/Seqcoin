@@ -1,1 +1,1 @@
-worker: npm run build-client & node index.js
+worker: npm start
